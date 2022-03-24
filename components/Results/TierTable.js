@@ -29,11 +29,11 @@ const TierTable = (props) => {
               <tbody>
               {props.songs.map((song, index) => {
                 return (
-                  <tr>
-                    <td className={'col-1'}>{song.position}</td>
-                    <td className={'col-2'}>{song.name}</td>
-                    <td className={'col-2'}>{song.artist}</td>
-                    <td className={'col-2'}>{song.year}</td>
+                  <tr key={index + 'row'}>
+                    <td key={index + 'position'} className={'col-1'}>{song.position}</td>
+                    <td key={index + 'name'} className={'col-2'}>{song.name}</td>
+                    <td key={index + 'artist'} className={'col-2'}>{song.artist}</td>
+                    <td key={index + 'year'} className={'col-2'}>{song.year}</td>
                   </tr>
                 )
               })}
