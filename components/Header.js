@@ -25,6 +25,11 @@ const Header = () => {
           <a>Top 100</a>
         </Link>
       </Nav>
+      <Nav style={{marginRight: "1rem"}}>
+        <Link href='/import'>
+          <a>Import</a>
+        </Link>
+      </Nav>
     </Navbar>
   )
 }
