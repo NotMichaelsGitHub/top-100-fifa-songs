@@ -24,6 +24,9 @@ export default function SelectedSongs(state = selectedSongs, action){
     case 'CHANGE_RANK':
       return changeRank(state, action)
 
+    case 'IMPORT_STORE':
+      return importStore(action)
+
     default:
       return state
   }
@@ -72,26 +75,6 @@ const sort = (newState) => {
 function compareNumbers(a, b) {
   return sortingKey[a.rank] - sortingKey[b.rank];
 }
-
-// const moveUp = (state, action) => {
-//   const from = (state.findIndex(x => x.name === action.payload.name));
-//   const to = from - 1;
-//
-//   if(to > -1){
-//     return(
-//       swap([ ...state ], from, to)
-//     );
-//   }
-//
-//   return(state);
-// }
-//
-// const swap = (s, a, b) => {
-//     const temp = s[a];
-//     s[a] = s[b];
-//     s[b] = temp;
-//     return (s)
-// }
 
 const moveUp = (state, action) => {
   const from = (state.findIndex(x => x.name === action.payload.name));
@@ -151,3 +134,31 @@ const changeRank = (state, action) => {
 
   return(state)
 }
+
+const importStore = (action) => {
+  return(
+    [...JSON.parse(action.payload.newState)]
+  )
+}
+
+
+
+// const moveUp = (state, action) => {
+//   const from = (state.findIndex(x => x.name === action.payload.name));
+//   const to = from - 1;
+//
+//   if(to > -1){
+//     return(
+//       swap([ ...state ], from, to)
+//     );
+//   }
+//
+//   return(state);
+// }
+//
+// const swap = (s, a, b) => {
+//     const temp = s[a];
+//     s[a] = s[b];
+//     s[b] = temp;
+//     return (s)
+// }

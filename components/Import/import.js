@@ -1,11 +1,15 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {connect} from 'react-redux';
 
 import Button from 'react-bootstrap/Button';
+import { bindActionCreators } from 'redux';
+import { importStore } from '../../reducers/actions';
 
 const Import = (props) => {
 
   const currentState = props.selectedSongs;
+
+  const [importTextArea, setImportTextArea] = useState(" ");
 
   return (
     <div className='row'>
@@ -20,11 +24,19 @@ const Import = (props) => {
 
         <textarea 
           className='container form-control' 
-          rows="7" >
+          rows="7"
+          value={importTextArea}
+          onChange={e => setImportTextArea(e.target.value)}>
         </textarea>
 
         <br></br>
-        <Button>Submit</Button>
+        <Button
+          onClick={()=>{
+            props.importStore(importTextArea)
+          }}
+        >
+          Submit
+        </Button>
       </div>
       <div className='col-6'>
         <div>
@@ -52,4 +64,10 @@ function mapStateToProps(state){
   }
 }
 
-export default connect(mapStateToProps)(Import)
+function matchDispatchtoProps(dispatch){
+  return bindActionCreators({
+    "importStore": importStore
+  }, dispatch)
+}
+
+export default connect(mapStateToProps,matchDispatchtoProps)(Import)

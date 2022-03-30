@@ -51,3 +51,13 @@ export const changeRank = (name, artist, rank, newRank) => {
     }
   };
 };
+
+export const importStore = (newState) => {
+
+  return {
+    type: "IMPORT_STORE",
+    payload: {
+      "newState": newState
+    }
+  }
+}
