@@ -18,7 +18,7 @@ const Import = (props) => {
           <h2>Import</h2>
         </div>
         <div>
-          <span>(doesnt work yet)</span>
+          <span>(it works the page just isnt refreshing for some reason)</span>
         </div>
         <br></br>
 

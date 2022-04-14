@@ -1,11 +1,14 @@
 import React, { useState }  from 'react';
 import {bindActionCreators} from 'redux';
+import Link from 'next/link';
 import {connect} from 'react-redux';
 import Accordion from 'react-bootstrap/Accordion';
 import Button from 'react-bootstrap/Button';
 import ButtonGroup from 'react-bootstrap/ButtonGroup';
 import { rankSong } from '../../reducers/actions/index'
 import { addCount } from '../../reducers/actions/index';
+
+import { BsSpotify } from 'react-icons/bs';
 
 import styles from './YearCard.module.css';
 
@@ -42,7 +45,19 @@ const YearCard = (props) => {
     <div>
       <Accordion>
         <Accordion.Item eventKey="0">
-          <Accordion.Header>{props.game} <span className={'text-secondary ' + styles.yearCardDescription}> {count} / {props.year.length}</span> </Accordion.Header>
+          <Accordion.Header>
+            <div>
+              <span>{props.game}</span> 
+              <span className={styles.yearCardSpotifyLink}>
+                <Link href={props.spotify}>
+                  <a target="_blank" rel="noopener noreferrer">
+                    <BsSpotify></BsSpotify>
+                  </a>
+                </Link>
+              </span>
+              <span className={'text-secondary ' + styles.yearCardDescription}> {count} / {props.year.length} </span> 
+            </div>
+          </Accordion.Header>
           <Accordion.Body>
             <div>
                 <button onClick={() => setCount(count + 1)}>

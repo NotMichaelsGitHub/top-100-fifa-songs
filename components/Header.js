@@ -30,6 +30,11 @@ const Header = () => {
           <a>Import</a>
         </Link>
       </Nav>
+      <Nav style={{marginRight: "1rem"}}>
+        <Link href='/share'>
+          <a>Share</a>
+        </Link>
+      </Nav>
     </Navbar>
   )
 }

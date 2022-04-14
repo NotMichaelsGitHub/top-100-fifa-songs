@@ -15,7 +15,9 @@ const TierTable = (props) => {
     <div>
       <Accordion defaultActiveKey={defaultOpen} flush>
         <Accordion.Item eventKey="0">
-          <Accordion.Header> {props.group}</Accordion.Header>
+          <Accordion.Header> 
+            {props.group}
+          </Accordion.Header>
           <Accordion.Body>
             <Table hover>
                 <thead>
